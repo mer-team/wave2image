@@ -20,13 +20,14 @@ jobs:
         RABBITMQ_MNG_PORT: 15672
         RABBITMQ_TAG: '3-management-alpine'
     
-    - name: Creates folders
-    - uses: 1arp/create-a-file-action@0.2
+    - name: Create Audio Folder
+      uses: 1arp/create-a-file-action@0.2
       with:
         path: '$GITHUB_WORKSPACE/Audios'
         file: 'file.txt'
         content: a
-    - uses: 1arp/create-a-file-action@0.2
+    - name: Create Soundwaves Folder
+      uses: 1arp/create-a-file-action@0.2
       with:
         path: '$GITHUB_WORKSPACE/Soundwaves'
         file: 'file.txt'
