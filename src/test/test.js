@@ -18,7 +18,8 @@ const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE;
       qTest = "musicFeaturesTest",
       qMain = "musicFeatures",
       vID = "JiF3pbvR5G0",
-      file = 'JiF3pbvR5G0.png';
+      file = "JiF3pbvR5G0.png",
+      link = "www.youtube.com/watch?v=JiF3pbvR5G0";
 
 describe('Testing RabbitMQ', ()=>{
   it('Should connect to the RabbitMQ', (done)=>{
@@ -90,7 +91,7 @@ describe('Testing RabbitMQ', ()=>{
           return;
         }
         ch.assertQueue(qTest, { durable: false }); 
-        ch.sendToQueue(qTest, Buffer.from(validLink), { persistent: false },
+        ch.sendToQueue(qTest, Buffer.from(link), { persistent: false },
         function(err) {
           if(err) {
             console.log("Error sending the message: ",err);
@@ -118,7 +119,7 @@ describe('Testing RabbitMQ', ()=>{
         }
         ch.assertQueue(qTest, { durable: false });
         ch.consume(qTest, function (msg) {
-          if (msg.content.toString() == validLink){
+          if (msg.content.toString() == link){
             done();
             setTimeout(function() { conn.close();}, 500);
           } else {
