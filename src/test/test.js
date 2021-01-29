@@ -16,7 +16,7 @@ const config={
 
 const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE;
       qTest = "musicExtractionTest",
-      qMain = "musicFeatures",
+      qMain = "musicExtraction",
       validLink = "https://www.youtube.com/watch?v=JiF3pbvR5G0",
       validFile = 'JiF3pbvR5G0.png';
 
