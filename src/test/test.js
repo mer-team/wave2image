@@ -15,10 +15,10 @@ const config={
 }
 
 const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE;
-      qTest = "musicExtractionTest",
-      qMain = "musicExtraction",
-      validLink = "https://www.youtube.com/watch?v=JiF3pbvR5G0",
-      validFile = 'JiF3pbvR5G0.png';
+      qTest = "musicFeaturesTest",
+      qMain = "musicFeatures",
+      vID = "JiF3pbvR5G0",
+      file = 'JiF3pbvR5G0.png';
 
 describe('Testing RabbitMQ', ()=>{
   it('Should connect to the RabbitMQ', (done)=>{
@@ -44,7 +44,7 @@ describe('Testing RabbitMQ', ()=>{
           return;
         }
         ch.assertQueue(qMain, { durable: false }); 
-        ch.sendToQueue(qMain, Buffer.from(validLink),
+        ch.sendToQueue(qMain, Buffer.from(vID),
           function(err) {
             if(err) {
               console.log("Error sending the message: ",err);
@@ -134,7 +134,7 @@ describe('Testing RabbitMQ', ()=>{
 describe('Testing the wave2image script', function() {
   it('Should convert the music soundwave to png', function(done) {
     setTimeout(function(){
-      fs.access(`${GITHUB_WORKSPACE}/${validFile}`, fs.F_OK, (err) => {
+      fs.access(`${GITHUB_WORKSPACE}/${file}`, fs.F_OK, (err) => {
         if (err) {
           console.error(err)
           console.log("File not found!");
