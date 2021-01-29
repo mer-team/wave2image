@@ -28,7 +28,7 @@ jobs:
 
     - name: Run Local wave2image Docker Image
     #  run: docker run -d -e TIME=10 -e USER=merUser -e PASS=passwordMER -e URL=http://localhost:15672/api/whoami --net=host -v $GITHUB_WORKSPACE/Audios:/Audios -v $GITHUB_WORKSPACE/Soundwaves:/Soundwaves wave2image:latest
-      run: docker run -e TIME=10 -e USER=merUser -e PASS=passwordMER -e URL=http://localhost:15672/api/whoami --net=host -v $GITHUB_WORKSPACE:/Audios -v $GITHUB_WORKSPACE:/Soundwaves wave2image:latest
+      run: docker run -d -e TIME=10 -e USER=merUser -e PASS=passwordMER -e URL=http://localhost:15672/api/whoami --net=host -v $GITHUB_WORKSPACE:/Audios -v $GITHUB_WORKSPACE:/Soundwaves wave2image:latest
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
