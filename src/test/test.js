@@ -134,7 +134,7 @@ describe('Testing RabbitMQ', ()=>{
 describe('Testing the wave2image script', function() {
   it('Should convert the music soundwave to png', function(done) {
     setTimeout(function(){
-      fs.access(`${GITHUB_WORKSPACE}/Soundwaves/${validFile}`, fs.F_OK, (err) => {
+      fs.access(`${GITHUB_WORKSPACE}/${validFile}`, fs.F_OK, (err) => {
         if (err) {
           console.error(err)
           console.log("File not found!");
