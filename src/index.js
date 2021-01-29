@@ -9,7 +9,7 @@ const fs = require('fs'),
 
 extractImage = async (vID,ch) => {
     // generateSoundImage([SOUND FILE PATH], [WIDTH], [HEIGHT])
-    lib.generateSoundImage(`/Audios/${vID}.wav`, 1250, 200, {
+    lib.generateSoundImage(`./Audios/${vID}.wav`, 1250, 200, {
         stepMultiplier: 10, // Density of waveform [default : 4]
         backgroundColor: '0', // image background color [default : '#fff']
         lineColor: '#fff', // image line color [default : '#666']
@@ -20,7 +20,7 @@ extractImage = async (vID,ch) => {
         centerLineColor: '#fff', // center guild line color [default : '#fff']
     })
     .then((stream) => {
-        const out = fs.createWriteStream(`/Soundwaves/${vID}.png`);
+        const out = fs.createWriteStream(`./Soundwaves/${vID}.png`);
         stream.pipe(out);
         out.on('finish', () => console.log('complete'));
     })
