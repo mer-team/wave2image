@@ -10,13 +10,13 @@ jobs:
       matrix:
         node-version: [12.x, 14.x]
 
-    container:
-      image: merteam/vidextractor:latest
-      env:
-        URL: http://localhost:15672/api/whoami
-      volumes:
-        - $GITHUB_WORKSPACE/Audios:/vidExtractor/Audios
-      options: --network=host
+    #container:
+      #image: merteam/vidextractor:latest
+      #env:
+      #  URL: http://localhost:15672/api/whoami
+      #volumes:
+      #  - $GITHUB_WORKSPACE/Audios:/vidExtractor/Audios
+      #options: --network=host
 
     steps:    
     - name: Setup RabbitMQ Image
@@ -27,6 +27,9 @@ jobs:
         RABBITMQ_PORT: 5672
         RABBITMQ_MNG_PORT: 15672
         RABBITMQ_TAG: '3-management-alpine'
+
+    - name: Run vidExtractor Project
+      run: docker run -d -e TIME=10 -e USER=merUser -e PASS=passwordMER -e URL=http://localhost:15672/api/whoami --net=host -v $GITHUB_WORKSPACE/Audios:/vidExtractor/Audios merteam/vidextractor:latest
 
     - name: Checkout wave2image Project
       uses: actions/checkout@v2
