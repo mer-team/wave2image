@@ -13,8 +13,8 @@ COPY ./src /wave2image
 
 WORKDIR /wave2image
 
-CMD mkdir /Audios
-CMD mkdir /Soundwaves
+CMD mkdir Audios
+CMD mkdir Soundwaves
 
 RUN npm install
 
