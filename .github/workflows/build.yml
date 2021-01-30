@@ -45,3 +45,7 @@ jobs:
       working-directory: src
       env:
         CI: true
+
+    - name: Dump docker logs on failure
+      if: failure()
+      uses: jwalton/gh-docker-logs@v1
