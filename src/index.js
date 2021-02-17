@@ -1,11 +1,11 @@
 const fs = require('fs'),
     lib = require('./generate-sound-waveform'),
-    user = process.env.USER || 'merUser',
-    pass = process.env.PASS || 'passwordMER',
+    user = process.env.USER || 'guest',
+    pass = process.env.PASS || 'guest',
     host = process.env.HOST || 'localhost',
     port = process.env.PORT || 5672;
 
-    var amqp = require('amqplib/callback_api');
+var amqp = require('amqplib/callback_api');
 
 extractImage = async (vID,ch) => {
     // generateSoundImage([SOUND FILE PATH], [WIDTH], [HEIGHT])
