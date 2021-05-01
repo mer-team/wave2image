@@ -1,7 +1,7 @@
 ## wave2image
 
 This microservice is responsible for generating waveform images based on the downloaded audio files.<br>
-The video ID is provided by the RabbitMQ in the `musicFeatures` queue list.
+The video ID is provided by the RabbitMQ in the `soundWaves` queue list.
 
 ### Docker Params
 | Arg | Default | Description |

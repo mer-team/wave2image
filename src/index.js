@@ -37,7 +37,7 @@ startScript = async () => {
     amqp.connect(`amqp://${user}:${pass}@${host}/`, function(err, conn) {
     conn.createChannel(function(err, ch) {
         console.log("Connected")
-        var q = 'musicFeatures';
+        var q = 'soundWaves';
         ch.assertQueue(q, {durable: false});
         console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", q);
         ch.consume(q, async function(msg) {

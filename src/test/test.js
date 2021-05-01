@@ -15,8 +15,8 @@ const config={
 }
 
 const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE;
-      qTest = "musicFeaturesTest",
-      qMain = "musicFeatures",
+      qTest = "soundWavesTest",
+      qMain = "soundWaves",
       vID = "JiF3pbvR5G0",
       file = "JiF3pbvR5G0.png",
       link = "www.youtube.com/watch?v=JiF3pbvR5G0";
