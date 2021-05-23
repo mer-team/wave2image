@@ -33,6 +33,11 @@ jobs:
     - name: Build Local wave2image Docker Image
       run: docker build -t wave2image:latest .
 
+    - name: Container Image Scan
+      uses: azure/container-scan@v0
+      with:
+        image-name: wave2image:latest
+
     - name: Run Local wave2image Docker Image
       run: docker run -d -e TIME=10 -e USER=$MQUSER -e PASS=$MQPASS -e HOST=$MQHOST -e MNG_PORT=$MNG_PORT --net=host -v "$GITHUB_WORKSPACE/src/test:/Audios" -v "$GITHUB_WORKSPACE:/Soundwaves" wave2image:latest
 
