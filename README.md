@@ -27,17 +27,17 @@ docker run -d -e RABBITMQ_DEFAULT_USER=merUser -e RABBITMQ_DEFAULT_PASS=password
 
 Build local `wave2image` from source
 ```
-docker build -t localwave2image:latest .
+docker build -t wave2image:local .
 ```
 
 Run local `wave2image`
 ```
-docker run -e TIME=10 -e USER=merUser -e PASS=passwordMER -e HOST=localhost -e MNG_PORT=15672 --net=host -v "Audios":"/Audios" -v "Soundwaves:/Soundwaves" localwave2image:latest
+docker run -e TIME=10 -e USER=merUser -e PASS=passwordMER -e HOST=localhost -e PORT=5672 -e MNG_PORT=15672 --net=host -v "<Local DIR>:/Audios" -v "Soundwaves:/Soundwaves" wave2image:local
 ```
 
 Run official `wave2image` image locally
 ```
-docker run -e TIME=10 -e USER=merUser -e PASS=passwordMER -e HOST=localhost -e MNG_PORT=15672 --net=host -v "Audios":"/Audios" -v "Soundwaves:/Soundwaves" merteam/wave2image:latest
+docker run -e TIME=10 -e USER=merUser -e PASS=passwordMER -e HOST=localhost -e PORT=5672 -e MNG_PORT=15672 --net=host -v "<Local DIR>:/Audios" -v "Soundwaves:/Soundwaves" merteam/wave2image:latest
 ```
 
 Based on [GitHub - hyunwoo/generate-sound-waveform](https://github.com/hyunwoo/generate-sound-waveform)
