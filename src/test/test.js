@@ -61,7 +61,6 @@ describe('Testing RabbitMQ', ()=>{
     });
   });
 
-
   it('Should create the RabbitMQ channel', (done)=>{
     amqp.connect(config, (err, conn)=>{
       if(err){
@@ -143,6 +142,6 @@ describe('Testing the wave2image script', function() {
         }
         console.log("File found!");
         done();
-      })}, 7000);
+      })}, 10000);
   });
 });
