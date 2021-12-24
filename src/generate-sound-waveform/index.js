@@ -25,9 +25,6 @@ function createWaveformImage(data, width, height, options) {
     const centerLineColor = options.centerLineColor
       ? options.centerLineColor
       : '#fff';
-    const backgroundColor = options.backgroundColor
-      ? options.backgroundColor
-      : '0';
 
     const step = Math.floor(
       data._channelData[0].length / (width * stepMultiplier - 2),
@@ -44,8 +41,7 @@ function createWaveformImage(data, width, height, options) {
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
-    ctx.fillStyle = backgroundColor;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     ctx.beginPath();
     ctx.strokeStyle = lineColor;

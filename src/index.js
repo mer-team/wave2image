@@ -11,7 +11,6 @@ extractImage = async (vID,ch) => {
     // generateSoundImage([SOUND FILE PATH], [WIDTH], [HEIGHT])
     lib.generateSoundImage('/Audios/'+vID+'.wav', 1250, 200, {
         stepMultiplier: 10, // Density of waveform [default : 4]
-        backgroundColor: '0', // image background color [default : '#fff']
         lineColor: '#fff', // image line color [default : '#666']
         globalAplha: 0.8, // draw line global alpha value [default : 0.6]
         padding: 60, // padding height [default : 8]
